@@ -3,5 +3,41 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
+    "word-cloud": {
+      "projectType": "library",
+      "root": "projects/word-cloud",
+      "sourceRoot": "projects/word-cloud/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/word-cloud/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/word-cloud/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/word-cloud/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/word-cloud/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "analytics": "273713df-7c3d-45fe-87c2-ae44885fb048"
   }
 }
